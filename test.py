@@ -3,6 +3,7 @@ import clip
 from PIL import Image
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+print(device)
 model, preprocess = clip.load("ViT-B/32", device=device)
 
 image = preprocess(Image.open("room.jpg")).unsqueeze(0).to(device)
